@@ -1,90 +1,25 @@
 ---
 layout: default
-title: CCM Design Inc.
+title:
 ---
 
-{% include master-header.html class="js-master-header--homepage" %}
-
 <main role="main" class=""> <!-- main content starts here -->
-  <div class="wrapper">
-    <h1 class="main-logo"><img src="{{ '/images/logo-ccm-design-full.svg' | relative_url }}" alt=""></h1>
-  </div>
-
-  <div class="wrapper">
-    <table class="grid">
-      <tbody>
-        <tr>
-          <td class="grid__item branding" colspan="2">
-            <div class="company-description">
-              <p>CCM Design is a creative studio specialized in the digital design for the public good. Working with the big players in Open Government and Open Data, we build state of the brands and digital platforms. We are focused on branding, editorial design, and interfaces. Keeping the user at the center of design, UX is the driving force of our digital efforts.</p>
-            </div>
-          </td>
-          {% include highlight-card.html item="Open Data Impact" %}
-          {% include highlight-card.html item="IODC 2016 Report" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Data Collaboratives" %}          
-          {% include highlight-card.html item="Open Data 500 Logo" %}
-          {% include highlight-card.html item="OD4D Annual Report" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Data Analytics for Procurement" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Seed of Change" %}
-          {% include highlight-card.html item="Open Contracting" %}
-          {% include highlight-card.html item="Resilient Cities Report" %}
-          {% include highlight-card.html item="OGRX" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="IODC 2015 Report" %}
-          {% include highlight-card.html item="Collectivites Locales" %}          
-          {% include highlight-card.html item="Digital Engagement Logo" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Baskerville" %}          
-          {% include highlight-card.html item="Smarter Crowdsourcing - Zika" %}
-          {% include highlight-card.html item="Digital Engagement Book" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Network of Innovators Logo" %}
-          {% include highlight-card.html item="ICT4Gov Logo" %}
-          {% include highlight-card.html item="Open Data Standards Report" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Karnataka Dashboard" %}
-          {% include highlight-card.html item="Open Data Catalogs Report" %}
-          {% include highlight-card.html item="Network of Innovators Interface" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Rio Grande do Norte Mockup" %}
-          {% include highlight-card.html item="Collective Intelligence" %}
-        </tr>
-        <tr>
-          {% include highlight-card.html item="Data Justice Network Logo" %}
-          {% include highlight-card.html item="Data Justice Network Logo" %}
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  
-
-    
-  
-
-  <!-- <div class="wrapper">
-
-    <section class="portfolio-gallery">
-      {% for i in site.data.portfolio %}
-      <div class="portfolio-item {% for j in i.tags %}tag-{{j}} {% endfor %}">
-        <img class="portfolio-item__image" src="/images/{{i.client_name | slugify}}/{{i.main_image}}">
+  <div class="card-list">
+    {% for i in site.data.projects %}
+      <div class="card card--category">
+        <div class="card__inner">
+          <p>{{i.category_name}}</p>  
+        </div>
+      </div>
+      
+      {% for j in i.projects %}
+      <div class="card js-card-trigger js-card-collapsed">
+        <div class="card__inner">
+          <p>{{j}}</p>
+        </div>
       </div>
       {% endfor %}
-    </section>
-  
-  </div> -->
-  
-
-  
+    {% endfor %}
+  </div>
 </main>
 

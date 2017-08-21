@@ -1,0 +1,67 @@
+.card2-list {
+display: flex;
+}
+
+.card2 {
+  position: relative;
+  width: 25vw;
+  height: 25vw;
+
+  &__inner {
+    width: 25vw;
+    height: 25vw;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    padding: 30px 50px;
+    position: absolute;
+    animation: none;
+  }
+}
+
+.card2-animation .card2__inner {
+  animation-name: card;
+  animation-duration: 1s;
+}
+
+.js-card2-collapsed {
+  .card2__inner {
+    animation-fill-mode: backwards;
+    animation-direction: reverse;
+  }
+}
+
+.js-card2-expanded {
+  .card2__inner {
+    animation-name: card;
+    animation-duration: 1s;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+    z-index: 200;
+  }
+}
+
+
+@keyframes card {
+  0% {
+    top: 0;
+    left: 0;
+    width: 25vw;
+    height: 25vw;
+  }
+  40% {
+    box-shadow: 2px 2px 12px rgba(black, .2);
+    left: -1vw;
+    top: -1vw;
+    width: 27vw;
+    height: 27vw;
+  }
+
+  100% {
+    left: -25vw;
+    width: 100vw;
+    top: -1vw;
+    height: 27vw;
+    box-shadow: 2px 2px 12px rgba(black, .2);
+  }
+}
