@@ -1,50 +1,28 @@
 $(document).ready(function () {
-  
-  // $(".js-card-trigger").click(function() {
-  //   $(this).addClass('js-card-expanded'); 
-  //   $(this).removeClass('js-card-collapsed');
-  //   $('#overlay').addClass('js-active');
-  //   $('body').addClass('js-body-card-active');
-  // });
+    // Card animation.
+    var animationDelay = 500;
 
-  // $("#overlay").click(function() {
-  //   $(".js-card-trigger").removeClass('js-card-expanded');
-  //   $(".js-card-trigger").addClass('js-card-collapsed');
-  //   $('#overlay').removeClass('js-active');
-  //   $('body').removeClass('js-body-card-active');
-  // });
+    $('.card2-list').on('click', '.card2-collapsed', function() {
+        var $card = $(this);
 
-  $(".js-card2-trigger").click(function() {
-    $(this).addClass('js-card2-expanded');
-    $(this).addClass('card2-animation');
-    $(this).removeClass('js-card2-collapsed');
-    $('#overlay').addClass('js-active');
-    $(this).removeClass('card2-animation');
-  });
+        $card.toggleClass('card2-detached');
 
-  $("#overlay").click(function() {
-    $(".js-card2-trigger").removeClass('js-card2-expanded');
-    $('.js-card2-trigger').addClass('card2-animation');
-    $(".js-card2-trigger").addClass('js-card2-collapsed');
-    $('.js-card2-trigger').removeClass('card2-animation');
-    $('#overlay').removeClass('js-active');
-    
-  });
+        // Waits card to detach.
+        setTimeout(function() {
+            $card.toggleClass('card2-collapsed card2-expanded');
+        }, animationDelay);
+    });
 
+    $('.card2-list').on('click', '.card2-expanded', function() {
+        var $card = $(this);
 
+        $card.toggleClass('card2-collapsed card2-expanded');
 
-  // var cards = $('.card-list').children();
-
-  // cards.each(function( index ) {
-
-  // });
-
-
-
-
-
-
-
+        // Waits card to collapse.
+        setTimeout(function() {
+            $card.toggleClass('card2-detached');
+        }, animationDelay);
+    });
 
     // Smooth Scrolling Function
     $('a[href*=#]:not([href=#])').click(function () {
