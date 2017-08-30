@@ -2,10 +2,11 @@ $(document).ready(function () {
     // Card animation.
     var animationDelay = 500;
 
-    $('.card2-list').on('click', '.card2-collapsed', function() {
+    $('.card2-row').on('click', '.card2-collapsed', function() {
         var $card = $(this);
 
         $card.toggleClass('card2-detached');
+        $card.css('z-index', '11');
 
         // Waits card to detach.
         setTimeout(function() {
@@ -13,7 +14,7 @@ $(document).ready(function () {
         }, animationDelay);
     });
 
-    $('.card2-list').on('click', '.card2-expanded', function() {
+    $('.card2-row').on('click', '.card2-expanded', function() {
         var $card = $(this);
 
         $card.toggleClass('card2-collapsed card2-expanded');
@@ -21,6 +22,11 @@ $(document).ready(function () {
         // Waits card to collapse.
         setTimeout(function() {
             $card.toggleClass('card2-detached');
+
+            // Waits card to attach.
+            setTimeout(function() {
+                $card.css('z-index', '0');
+            }, animationDelay);
         }, animationDelay);
     });
 
