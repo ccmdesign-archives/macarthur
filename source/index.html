@@ -4,22 +4,22 @@ title:
 ---
 
 <main role="main" class=""> <!-- main content starts here -->
-  <div class="card-list">
+  
     {% for i in site.data.projects %}
-      <div class="card card--category">
-        <div class="card__inner">
-          <p>{{i.category_name}}</p>  
-        </div>
+      <div class="divider">
+        <h1>{{i.category_name}}</h1>
       </div>
-      
+      <div class="card2-row">
       {% for j in i.projects %}
-      <div class="card js-card-trigger js-card-collapsed">
-        <div class="card__inner">
-          <p>{{j}}</p>
+      <div class="card2 card2-collapsed card--category">
+        <div class="card2__inner">
+          {{j}}
         </div>
       </div>
       {% endfor %}
+      </div>
     {% endfor %}
   </div>
+  
 </main>
 
