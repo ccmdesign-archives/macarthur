@@ -14,8 +14,8 @@
   flex: 0 0 25vw;
   height: 25vw;
   position: relative;
-  
-  .card__inner { 
+
+  .card__inner {
     position: relative;
     width: 100%;
     height: 100%;
@@ -48,7 +48,7 @@
     z-index: 11;
     animation-direction: normal;
   }
-  
+
 }
 
 @keyframes card_1 {

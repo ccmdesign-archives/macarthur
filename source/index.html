@@ -4,22 +4,20 @@ title:
 ---
 
 <main role="main" class=""> <!-- main content starts here -->
-  
-    {% for i in site.data.projects %}
-      <div class="divider">
-        <h1>{{i.category_name}}</h1>
-      </div>
-      <div class="card2-row">
+  {% for i in site.data.projects %}
+    <div class="divider">
+      <h1>{{i.category_name}}</h1>
+    </div>
+
+    <div class="card2-row">
       {% for j in i.projects %}
-      <div class="card2 card2-collapsed card--category">
-        <div class="card2__inner">
-          {{j}}
+        <div class="card-container">
+          <div class="card2 card2-collapsed">
+            <p>Text</p>
+          </div>
         </div>
-      </div>
       {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
-  
+    </div>
+  {% endfor %}
 </main>
 

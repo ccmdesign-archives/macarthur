@@ -1,6 +1,6 @@
 $(document).ready(function () {
     // Card animation.
-    var animationDelay = 500;
+    var animationDelay = 300;
 
     $('.card2-row').on('click', '.card2-collapsed', function() {
         var $card = $(this);
@@ -18,6 +18,7 @@ $(document).ready(function () {
         var $card = $(this);
 
         $card.toggleClass('card2-collapsed card2-expanded');
+        // $card.toggleClass('card2-detached');
 
         // Waits card to collapse.
         setTimeout(function() {
