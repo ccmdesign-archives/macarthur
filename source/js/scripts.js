@@ -3,21 +3,21 @@ $(document).ready(function () {
     var animationDelay = 300;
 
     var openCard = function($card) {
-        $card.toggleClass('card2-detached');
+        $card.toggleClass('card-detached');
         $card.css('z-index', '11');
 
         // Waits card to detach
         setTimeout(function() {
-            $card.toggleClass('card2-collapsed card2-expanded');
+            $card.toggleClass('card-collapsed card-expanded');
         }, animationDelay);
     };
 
     var closeCard = function($card) {
-        $card.toggleClass('card2-collapsed card2-expanded');
+        $card.toggleClass('card-collapsed card-expanded');
 
         // Waits card to collapse
         setTimeout(function() {
-            $card.toggleClass('card2-detached');
+            $card.toggleClass('card-detached');
 
             // Waits card to attach
             setTimeout(function() {
@@ -26,13 +26,13 @@ $(document).ready(function () {
         }, animationDelay);
     }
 
-    $('.card2-row').on('click', '.card2-collapsed', function() {
+    $('.card-row').on('click', '.card-collapsed', function() {
         // Only one card should be open at a time
-        closeCard($('.card2-expanded'));
+        closeCard($('.card-expanded'));
         openCard($(this));
     });
 
-    $('.card2-row').on('click', '.card2-expanded', function() {
+    $('.card-row').on('click', '.card-expanded', function() {
         closeCard($(this));
     });
 
