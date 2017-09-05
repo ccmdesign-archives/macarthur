@@ -1,34 +1,39 @@
 $(document).ready(function () {
-    // Card animation.
+    // Card animation
     var animationDelay = 300;
 
-    $('.card2-row').on('click', '.card2-collapsed', function() {
-        var $card = $(this);
-
+    var openCard = function($card) {
         $card.toggleClass('card2-detached');
         $card.css('z-index', '11');
 
-        // Waits card to detach.
+        // Waits card to detach
         setTimeout(function() {
             $card.toggleClass('card2-collapsed card2-expanded');
         }, animationDelay);
-    });
+    };
 
-    $('.card2-row').on('click', '.card2-expanded', function() {
-        var $card = $(this);
-
+    var closeCard = function($card) {
         $card.toggleClass('card2-collapsed card2-expanded');
-        // $card.toggleClass('card2-detached');
 
-        // Waits card to collapse.
+        // Waits card to collapse
         setTimeout(function() {
             $card.toggleClass('card2-detached');
 
-            // Waits card to attach.
+            // Waits card to attach
             setTimeout(function() {
                 $card.css('z-index', '0');
             }, animationDelay);
         }, animationDelay);
+    }
+
+    $('.card2-row').on('click', '.card2-collapsed', function() {
+        // Only one card should be open at a time
+        closeCard($('.card2-expanded'));
+        openCard($(this));
+    });
+
+    $('.card2-row').on('click', '.card2-expanded', function() {
+        closeCard($(this));
     });
 
     // Smooth Scrolling Function
